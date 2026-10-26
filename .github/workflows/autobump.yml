@@ -46,11 +46,11 @@ jobs:
         env:
           TAP_NAME: ${{ steps.set-up-homebrew.outputs.tap-name }}
         run: |
-          formulae=$(brew tap-info --json "$TAP_NAME" | jq -r '.[0].formula_names[]')
-          pythons=$(brew deps --direct --union $formulae | grep -E '^python(@[0-9.]+)?$' || true)
-          if [[ -n "$pythons" ]]
+          mapfile -t formulae < <(brew tap-info --json "$TAP_NAME" | jq -r '.[0].formula_names[]')
+          mapfile -t pythons < <(brew deps --direct --union "${formulae[@]}" | grep -E '^python(@[0-9.]+)?$' || true)
+          if [[ "${#pythons[@]}" -gt 0 ]]
           then
-            brew install $pythons
+            brew install "${pythons[@]}"
           fi
 
       - name: Set up git
