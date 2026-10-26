@@ -25,8 +25,6 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      # PRs opened with the default GITHUB_TOKEN don't trigger other workflows,
-      # so bump PRs would never be tested or get bottles. Fail loudly instead.
       - name: Check HOMEBREW_TAP_TOKEN is set
         env:
           HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
@@ -42,6 +40,18 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@eb02c69dbabdb66ff183c614f4ce7ab3c077592c # 2026.10.12.1
         with:
           token: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          core: true
+
+      - name: Install Python used by tap formulae
+        env:
+          TAP_NAME: ${{ steps.set-up-homebrew.outputs.tap-name }}
+        run: |
+          formulae=$(brew tap-info --json "$TAP_NAME" | jq -r '.[0].formula_names[]')
+          pythons=$(brew deps --direct --union $formulae | grep -E '^python(@[0-9.]+)?$' || true)
+          if [[ -n "$pythons" ]]
+          then
+            brew install $pythons
+          fi
 
       - name: Set up git
         id: git_setup
