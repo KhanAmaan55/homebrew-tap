@@ -8,9 +8,9 @@ class Domainspyder < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/KhanAmaan55/homebrew-tap/releases/download/domainspyder-1.0.1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "1f7c0a24c12e28c2e0001d997be8e4748fa0f88e9458bd02c5b43f0c57de1d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "03668bf5b6f009a340c4c7d8a959dd1b031849c78804e0319428fa9540413c95"
+    root_url "https://github.com/KhanAmaan55/homebrew-tap/releases/download/domainspyder-1.0.2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:  "d961c4c2154ce756cee92d4857ab40f503bc7ac107d6d9b13520f56011ff4851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "389cce792faacd937b55c5f4874bcb1afff287ed33531de3f1363f118e56893c"
   end
 
   depends_on "rust" => :build # for dnspython > uv_build > maturin
