@@ -3,8 +3,8 @@ class Domainspyder < Formula
 
   desc "Domain intelligence CLI: subdomains, DNS, ports, tech detection and WHOIS"
   homepage "https://github.com/KhanAmaan55/DomainSpyder"
-  url "https://files.pythonhosted.org/packages/67/db/d38a1b7a800737a3d1f6e62c65ed5908dd1405b0383dd36fa3f4b8861c14/domainspyder-1.0.1.tar.gz"
-  sha256 "b07206b16f5a76647787a4254477f1b4080f872a4bbabedc6a1cb5eb137ed50a"
+  url "https://files.pythonhosted.org/packages/13/3d/e7dbf2c786ad0f07274f8939ce6713fe8e65d293e9fe46208af117a691c8/domainspyder-1.0.2.tar.gz"
+  sha256 "699f11a310a6344a879ff58edb0fcef9a7b68b1c41239465436d95b74283d7a3"
   license "MIT"
 
   bottle do
@@ -70,8 +70,8 @@ class Domainspyder < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
+    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
   end
 
   resource "python-whois" do
@@ -97,6 +97,11 @@ class Domainspyder < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
+    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
   end
 
   resource "urllib3" do
